@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Search from '../components/Search';
+import Filter from '../components/Filter';
 
 const Home = () => {
   return (
@@ -9,6 +11,12 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Search />
+      <Filter />
+
+      <div>
+
+      </div>
     </>
   );
 };

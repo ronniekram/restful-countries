@@ -1,18 +1,20 @@
-import { useTheme } from 'next-themes';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { useTheme } from "next-themes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon } from "@fortawesome/free-solid-svg-icons";
+import styles from './css/header.module.css';
 
 const Header = () => {
-  const {theme, setTheme} = useTheme();
+  const { theme, setTheme } = useTheme();
 
-  const toggleTheme = () => theme === 'dark' ? setTheme('light') : setTheme('dark'); 
+  const toggleTheme = () =>
+    theme === "dark" ? setTheme("light") : setTheme("dark");
 
   return (
-    <div>
-      <h1>Where In The World?</h1>
-      <h2>
-        <FontAwesomeIcon icon={faMoon} onClick={toggleTheme} />
-      </h2>
+    <div className={styles.container}>
+      <div>Where In The World?</div>
+      <div>
+        <FontAwesomeIcon icon={faMoon} onClick={toggleTheme} className={styles.icon} />
+      </div>
     </div>
   );
 };

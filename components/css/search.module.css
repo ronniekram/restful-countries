@@ -1,0 +1,15 @@
+.container {
+  margin: 1.25rem 1rem;
+}
+.container input {
+  background: var(--primary);
+  color: var(--text);
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 0.3125rem;
+  line-height: 20px;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 300;
+}

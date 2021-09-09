@@ -16,18 +16,21 @@ export function CountriesContextProvider(props) {
 
   useEffect(() => {
     getCountries();
+    getRegions();
   }, []);
 
   const getRegions = () => {
-    const regions = [];
+    if (countries) {
+      const regions = [];
 
-    for (let country of countries) {
-      if (!regions.includes(country.region) && country.region !== "" && country.region !== "Polar") {
-        regions.push(country.region)
+      for (let country of countries) {
+        if (!regions.includes(country.region) && country.region !== "" && country.region !== "Polar") {
+          regions.push(country.region)
+        };
       };
-    };
-
-    return regions;
+  
+      return regions;
+    }
   };
 
   const context = {

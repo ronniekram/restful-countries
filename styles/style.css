@@ -1,15 +1,18 @@
-[data-theme=light] {
-  --background: hsl(0, 0%, 98%);
-  --primary: hsl(0, 0%, 100%);
-  --secondary: hsl(0, 0%, 52%);
-  --text: hsl(200, 15%, 8%);
-}
-
-[data-theme=dark] {
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+:root[data-theme=dark] {
   --background: hsl(207, 26%, 17%);
   --primary: hsl(209, 23%, 22%);
   --secondary: hsl(0, 0%, 100%);
   --text: hsl(0, 0%, 100%);
+  --font: "Nunito Sans";
+}
+
+:root[data-theme=light] {
+  --background: hsl(0, 0%, 98%);
+  --primary: hsl(0, 0%, 100%);
+  --secondary: hsl(0, 0%, 52%);
+  --text: hsl(200, 15%, 8%);
+  --font: "Nunito Sans";
 }
 
 html,
@@ -21,6 +24,8 @@ body {
   color: var(--text);
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }

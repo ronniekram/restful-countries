@@ -1,0 +1,17 @@
+.container {
+  background: var(--primary);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+
+  padding: 1.875rem 1rem;
+
+  font-weight: 600;
+  font-size: 14px;
+
+  .icon {
+    height: 20px;
+  }
+}
