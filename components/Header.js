@@ -1,27 +1,17 @@
-import { useContext, useState } from 'react';
-import Image from 'next/image';
-import CountriesContext from '../store/countries-context';
-
-import { moon, sun } from 'ionicons/icons';
+import { useTheme } from 'next-themes';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
-  const [theme, setTheme] = useState('dark');
+  const {theme, setTheme} = useTheme();
 
-  // debugger
-  const toggleTheme = () => theme === 'dark' ? setTheme('light') : setTheme('dark');
-
-  // const countries = useContext(CountriesContext).countries;
+  const toggleTheme = () => theme === 'dark' ? setTheme('light') : setTheme('dark'); 
 
   return (
     <div>
       <h1>Where In The World?</h1>
       <h2>
-        <Image 
-          src={moon} 
-          width="20" 
-          height="20" 
-          alt="SVG of crescent moon" 
-        />
+        <FontAwesomeIcon icon={faMoon} onClick={toggleTheme} />
       </h2>
     </div>
   );

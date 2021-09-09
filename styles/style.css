@@ -1,13 +1,11 @@
-@import './variables.scss';
-
-[data-theme="light"] {
+[data-theme=light] {
   --background: hsl(0, 0%, 98%);
   --primary: hsl(0, 0%, 100%);
   --secondary: hsl(0, 0%, 52%);
   --text: hsl(200, 15%, 8%);
 }
 
-[data-theme="dark"] {
+[data-theme=dark] {
   --background: hsl(207, 26%, 17%);
   --primary: hsl(209, 23%, 22%);
   --secondary: hsl(0, 0%, 100%);
@@ -18,7 +16,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   background: var(--background);
   color: var(--text);
 }

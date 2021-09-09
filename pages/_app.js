@@ -1,16 +1,24 @@
-import Header from '../components/Header';
-import { CountriesContextProvider } from '../store/countries-context';
+import { ThemeProvider } from "next-themes";
+import Header from "../components/Header";
+import { CountriesContextProvider } from "../store/countries-context";
+import "../styles/style.css";
 
 function MyApp({ Component, pageProps }) {
-
   return (
-    <div>
-      <CountriesContextProvider>
-        <Header />
-        <Component {...pageProps} />
-      </CountriesContextProvider>
-    </div>
-  )
+    <>
+      <ThemeProvider
+        defaultTheme="system"
+        enableSystem={true}
+        themes={["light", "dark"]}
+        attribute="data-theme"
+      >
+        <CountriesContextProvider>
+          <Header />
+          <Component {...pageProps} />
+        </CountriesContextProvider>
+      </ThemeProvider>
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
