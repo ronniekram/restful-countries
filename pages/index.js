@@ -1,8 +1,19 @@
+import { useContext } from 'react';
 import Head from 'next/head';
 import Search from '../components/Search';
 import Filter from '../components/Filter';
+import Country from '../components/Country';
+import CountriesContext from '../store/countries-context';
 
 const Home = () => {
+  const countries = useContext(CountriesContext).countries;
+
+  const renderCountries = countries && countries.map(country => {
+    return (
+      <Country country={country} key={country.name} />
+    );
+  });
+
   return (
     <>
       <Head>
@@ -15,7 +26,7 @@ const Home = () => {
       <Filter />
 
       <div>
-
+        {renderCountries}
       </div>
     </>
   );

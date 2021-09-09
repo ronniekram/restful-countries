@@ -1,0 +1,33 @@
+.card {
+  margin: 2.5rem 3.4375rem;
+  border-radius: .3125rem;
+
+  background: var(--primary);
+
+  .flag {
+    width: 100%;
+    border-radius: .3125rem .3125rem 0 0;
+  }
+
+  .info {
+    padding: 1.5rem;
+
+    h1 {
+      margin: 0 0 1rem 0;
+      font-weight: 800;
+      font-size: 18px;
+    }
+  
+    p {
+      padding: 0;
+      margin: .25rem 0;
+      font-weight: 300;
+      font-size: 14px;
+  
+      span {
+        font-weight: 600;
+        letter-spacing: 0px;
+      }
+    }
+  }
+}

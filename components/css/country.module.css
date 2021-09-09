@@ -1,2 +1,27 @@
-
-/*# sourceMappingURL=country.module.css.map */
+.card {
+  margin: 2.5rem 3.4375rem;
+  border-radius: 0.3125rem;
+  background: var(--primary);
+}
+.card .flag {
+  width: 100%;
+  border-radius: 0.3125rem 0.3125rem 0 0;
+}
+.card .info {
+  padding: 1.5rem;
+}
+.card .info h1 {
+  margin: 0 0 1rem 0;
+  font-weight: 800;
+  font-size: 18px;
+}
+.card .info p {
+  padding: 0;
+  margin: 0.25rem 0;
+  font-weight: 300;
+  font-size: 14px;
+}
+.card .info p span {
+  font-weight: 600;
+  letter-spacing: 0px;
+}

@@ -10,7 +10,7 @@ const Search = () => {
   return (
     <div className={styles.container}>
       <label htmlFor="search" aria-label="Search Countries"></label>
-      <input type="text" name="search" placeholder="Search for a Country..." />
+      <input type="text" name="search" placeholder="Search for a country..." />
     </div>
   )
 };
