@@ -19,14 +19,21 @@
 ## Packages
 * axios
 
+## Context
+* Country Context
+
 ## Pages
+* Root
 * Single Country
 
 ## Components
 * Search Input
 * Filter Dropdown
 * Header
-* Country
+* Country?
+
+
+# Design
 
 ## Mobile
 
