@@ -6,18 +6,33 @@ const CountriesContext = createContext({
 });
 
 export function CountryContextProvider(props) {
-  const [countries, setCountries] = useState(null);
+  const [countries, setCountries] = useState();
 
   const getCountries = async () => {
     const response = await axios.get('https://restcountries.eu/rest/v2/all');
+    const results = await response.json();
+    return results;
   };
 
   useEffect(() => {
+    setCountries(getCountries());
+  }, [countries]);
 
-  });
+  const getRegions = () => {
+    const regions = [];
+
+    for (let country of countries) {
+      if (!regions.includes(country.region) && country.region !== "" && country.region !== "Polar") {
+        regions.push(country.region)
+      };
+    };
+
+    return regions;
+  };
 
   const context = {
-    countries: countries
+    countries: countries,
+    getRegions: getRegions
   };
 
   return (
