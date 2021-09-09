@@ -5,18 +5,19 @@ const CountriesContext = createContext({
   countries: [],
 });
 
-export function CountryContextProvider(props) {
+export function CountriesContextProvider(props) {
   const [countries, setCountries] = useState();
 
   const getCountries = async () => {
     const response = await axios.get('https://restcountries.eu/rest/v2/all');
-    const results = await response.json();
+    // debugger
+    const results = await response.data
     return results;
   };
 
   useEffect(() => {
     setCountries(getCountries());
-  }, [countries]);
+  }, []);
 
   const getRegions = () => {
     const regions = [];
