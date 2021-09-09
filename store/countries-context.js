@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const CountriesContext = createContext({
   countries: [],
+  getRegions: () => {},
 });
 
 export function CountriesContextProvider(props) {

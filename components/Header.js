@@ -1,14 +1,28 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import Image from 'next/image';
 import CountriesContext from '../store/countries-context';
 
-const Header = () => {
-  const countriesCtx = useContext(CountriesContext);
+import { moon, sun } from 'ionicons/icons';
 
-  console.log(countriesCtx);
+const Header = () => {
+  const [theme, setTheme] = useState('dark');
+
+  // debugger
+  const toggleTheme = () => theme === 'dark' ? setTheme('light') : setTheme('dark');
+
+  // const countries = useContext(CountriesContext).countries;
 
   return (
     <div>
-      hi
+      <h1>Where In The World?</h1>
+      <h2>
+        <Image 
+          src={moon} 
+          width="20" 
+          height="20" 
+          alt="SVG of crescent moon" 
+        />
+      </h2>
     </div>
   );
 };
