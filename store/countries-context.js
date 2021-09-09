@@ -10,13 +10,11 @@ export function CountriesContextProvider(props) {
 
   const getCountries = async () => {
     const response = await axios.get('https://restcountries.eu/rest/v2/all');
-    // debugger
-    const results = await response.data
-    return results;
+    setCountries(response.data)
   };
 
   useEffect(() => {
-    setCountries(getCountries());
+    getCountries();
   }, []);
 
   const getRegions = () => {
