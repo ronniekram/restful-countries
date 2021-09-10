@@ -1,29 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 import styles from './css/filter.module.css';
 
-const Filter = ({ filterCountries, regions }) => {
+const Filter = ({ filterCountries }) => {
   const [selected, setSelected] = useState("");
-  // const regions = [...regionsList];
 
   const handleSelect = (e) => {
     setSelected(e.target.value);
-    filterCountries(e.target.value)
+    setTimeout(() => filterCountries(selected), 2000)
   };
-
 
   return (
     <div className={styles.container}>
       <label htmlFor="filter" aria-label="Filter Countries By Region"></label>
       <select name="filter" onChange={handleSelect} value={selected}>
         <option value="">Filter By Region</option>
-        {regions && regions.map((region) => (
-          <option value={region} key={region}>
-            {region}
-          </option>
-        ))}
+        <option value="Africa">Africa</option>
+        <option value="Asia">Asia</option>
+        <option value="Americas">Americas</option>
+        <option value="Europe">Europe</option>
+        <option value="Oceania">Oceania</option>
       </select>
     </div>
   );
