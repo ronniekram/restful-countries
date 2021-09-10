@@ -6,13 +6,16 @@ import Country from '../components/Country';
 import CountriesContext from '../store/countries-context';
 
 const Home = () => {
-  const countries = useContext(CountriesContext).countries;
+  const countriesCtx = useContext(CountriesContext);
+  const { countries, getRegions, filterCountries } = countriesCtx;
+  const regions = getRegions();
 
   const renderCountries = countries && countries.map(country => {
     return (
       <Country country={country} key={country.name} />
     );
   });
+
 
   return (
     <>
@@ -23,7 +26,11 @@ const Home = () => {
       </Head>
 
       <Search />
-      <Filter />
+      <Filter 
+        countries={countries} 
+        filterCountries={filterCountries} 
+        regions={regions}
+      />
 
       <div>
         {renderCountries}

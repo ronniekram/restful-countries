@@ -4,6 +4,8 @@ import axios from 'axios';
 const CountriesContext = createContext({
   countries: [],
   getRegions: () => {},
+  filterCountries: () => {},
+  setCountries: () => {}
 });
 
 export function CountriesContextProvider(props) {
@@ -14,10 +16,14 @@ export function CountriesContextProvider(props) {
     setCountries(response.data)
   };
 
-  useEffect(() => {
-    getCountries();
-    getRegions();
-  }, []);
+  const filterCountries = (region) => {
+    if (region !== "") {
+      const filteredCountries = countries.filter(country => country.region === region);
+
+      setCountries(filteredCountries);
+    }
+    // return countries;
+  };
 
   const getRegions = () => {
     if (countries) {
@@ -30,12 +36,19 @@ export function CountriesContextProvider(props) {
       };
   
       return regions;
-    }
+    };
   };
+
+  useEffect(() => {
+    getCountries();
+    getRegions();
+  }, []);
 
   const context = {
     countries: countries,
-    getRegions: getRegions
+    getRegions: getRegions,
+    filterCountries: filterCountries,
+    setCountries: setCountries
   };
 
   return (
