@@ -1,6 +1,5 @@
 import { ThemeProvider } from "next-themes";
 import Header from "../components/Header";
-import Search from '../components/Search';
 import { CountriesContextProvider } from "../store/countries-context";
 import "../styles/style.css";
 

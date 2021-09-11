@@ -17,8 +17,6 @@ export function CountriesContextProvider(props) {
 
   const [query, setQuery] = useState('');
 
-  const [searchParam] = useState(["capital", "name"]);
-
   const getCountries = async () => {
     const response = await axios.get('https://restcountries.eu/rest/v2/all');
     const data = await response.data
