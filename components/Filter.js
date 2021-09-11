@@ -1,15 +1,12 @@
-import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 import styles from './css/filter.module.css';
 
-const Filter = ({ filterCountries }) => {
-  const [selected, setSelected] = useState("");
+const Filter = ({ selected, setSelected }) => {
 
   const handleSelect = (e) => {
     setSelected(e.target.value);
-    setTimeout(() => filterCountries(selected), 2000)
   };
 
   return (
