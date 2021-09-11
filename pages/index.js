@@ -8,11 +8,6 @@ import CountriesContext from '../store/countries-context';
 const Home = () => {
   const countriesCtx = useContext(CountriesContext);
   const { filterCountries, selected, setSelected, filtered } = countriesCtx;
-  
-
-  // useEffect(() => {
-  //   filterCountries();
-  // }, [selected]);
 
   const renderCountries = () => {
     return filtered && filtered.map(country => {

@@ -18,16 +18,16 @@ export function CountriesContextProvider(props) {
     const response = await axios.get('https://restcountries.eu/rest/v2/all');
     const data = await response.data
     setCountries(data);
-    setFiltered(data);
+    // setFiltered(data);
   };
 
   useEffect(() => {
     getCountries();
-  }, []);
+  }, [filtered]);
 
   const filterCountries = () => {
     if (filtered && selected !== '') {
-      setFiltered(filtered.filter(country => country.region === selected));
+      setFiltered(countries.filter(country => country.region === selected));
     } else {
       setSelected('');
       setFiltered(countries);
