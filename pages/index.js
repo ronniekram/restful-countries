@@ -7,19 +7,15 @@ import CountriesContext from '../store/countries-context';
 
 const Home = () => {
   const countriesCtx = useContext(CountriesContext);
-  const { countries, filterCountries, getCountries } = countriesCtx;
-  const [selected, setSelected] = useState('');
+  const { filterCountries, selected, setSelected, filtered } = countriesCtx;
+  
 
-  // getCountries();
-
-  useEffect(() => {
-    // getCountries();
-    filterCountries(selected)
-  }, [selected]);
+  // useEffect(() => {
+  //   filterCountries();
+  // }, [selected]);
 
   const renderCountries = () => {
-    // filterCountries(selected);
-    return countries && countries.map(country => {
+    return filtered && filtered.map(country => {
       return <Country country={country} key={country.name} />
     });
   };
@@ -34,7 +30,8 @@ const Home = () => {
 
       <Search />
 
-      <Filter 
+      <Filter
+        filterCountries={filterCountries}
         selected={selected}
         setSelected={setSelected}
       />

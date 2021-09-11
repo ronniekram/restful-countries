@@ -1,13 +1,18 @@
+import { useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 import styles from './css/filter.module.css';
 
-const Filter = ({ selected, setSelected }) => {
+const Filter = ({ selected, setSelected, filterCountries }) => {
 
   const handleSelect = (e) => {
     setSelected(e.target.value);
   };
+
+  useEffect(() => {
+    filterCountries();
+  }, [selected])
 
   return (
     <div className={styles.container}>
