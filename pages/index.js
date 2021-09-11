@@ -7,7 +7,7 @@ import CountriesContext from '../store/countries-context';
 
 const Home = () => {
   const countriesCtx = useContext(CountriesContext);
-  const { filterCountries, selected, setSelected, filtered } = countriesCtx;
+  const { selected, query, filtered, setSelected, setQuery, filterCountries, searchCountries } = countriesCtx;
 
   const renderCountries = () => {
     return filtered && filtered.map(country => {
@@ -23,7 +23,11 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Search />
+      <Search
+        query={query}
+        setQuery={setQuery}
+        searchCountries={searchCountries} 
+      />
 
       <Filter
         filterCountries={filterCountries}

@@ -11,14 +11,18 @@ const CountriesContext = createContext({
 
 export function CountriesContextProvider(props) {
   const [countries, setCountries] = useState();
+
   const [selected, setSelected] = useState('');
   const [filtered, setFiltered] = useState([]);
+
+  const [query, setQuery] = useState('');
+
+  const [searchParam] = useState(["capital", "name"]);
 
   const getCountries = async () => {
     const response = await axios.get('https://restcountries.eu/rest/v2/all');
     const data = await response.data
     setCountries(data);
-    // setFiltered(data);
   };
 
   useEffect(() => {
@@ -34,13 +38,29 @@ export function CountriesContextProvider(props) {
     };
   };
 
+  const searchCountries = () => {
+    if (filtered && query !== '') {
+      setFiltered(countries.filter(country => {
+        if (country.name.toLowerCase().includes(query.toLowerCase()) || country.capital.toLowerCase().includes(query.toLowerCase())) {
+          return country;
+        };
+      }));
+    } else {
+      setQuery('');
+      setFiltered(countries);
+    };
+  };
+
   const context = {
     countries: countries,
     selected: selected,
     filtered: filtered,
+    query: query,
+    setQuery: setQuery,
     setSelected: setSelected,
     filterCountries: filterCountries,
-    getCountries: getCountries
+    getCountries: getCountries,
+    searchCountries: searchCountries
   };
 
   return (
