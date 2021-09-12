@@ -7,7 +7,7 @@ const Countries = ({ countries }) => {
   };
 
   return (
-    <div>
+    <div className="">
       {renderCountries()}
     </div>
   );

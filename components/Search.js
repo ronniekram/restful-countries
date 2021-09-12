@@ -1,10 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
+import CountriesContext from '../store/countries-context';
+
 import styles from './css/search.module.css';
 
-const Search = ({ query, setQuery, searchCountries }) => {
+const Search = () => {
+  const countriesCtx = useContext(CountriesContext);
+  const { query, setQuery, searchCountries } = countriesCtx;
+
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
