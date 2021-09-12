@@ -1,8 +1,16 @@
 import Link from 'next/link';
+import useSWR from 'swr';
 import { useRouter } from "next/router";
+import axios from 'axios';
 
-const CountryPage = (props) => {
+const CountryPage = () => {
   const router = useRouter();
+
+  const fetcher = url => axios.get(url).then(res => res.data);
+  const { data, error } = useSWR(`https://restcountries.eu/rest/v2/name/${router.query.slug}?fullText=true`, fetcher);
+
+  const country = data[0];
+
   return (
     <div>
       <Link href="/">Back</Link>
@@ -11,18 +19,6 @@ const CountryPage = (props) => {
   )
 };
 
-export async function getServerSideProps(context) {
-  const { flag, name, population, region, capital } = context.query;
 
-  return {
-    props: {
-      flag,
-      name,
-      population,
-      region,
-      capital
-    }
-  };
-};
 
 export default CountryPage;

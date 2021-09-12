@@ -15,14 +15,7 @@ const Country = ({ country }) => {
           <Link 
             href={{
               pathname: '/countries/[slug]',
-              query: { 
-                slug: name,
-                flag: flag, 
-                name: name,
-                population: population,
-                region: region,
-                capital: capital
-              }
+              query: { slug: name }
             }}
           >
             <a>
