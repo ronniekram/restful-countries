@@ -40,6 +40,7 @@ export function CountriesContextProvider(props) {
   };
 
   const searchCountries = () => {
+    setSelected('')
     if (filtered && query !== '') {
       setFiltered(countries.filter(country => {
         if (country.name.toLowerCase().includes(query.toLowerCase()) || country.capital.toLowerCase().includes(query.toLowerCase())) {
