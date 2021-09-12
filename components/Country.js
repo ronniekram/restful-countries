@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
 import styles from './css/country.module.css';
 
 const Country = ({ country }) => {

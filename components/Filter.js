@@ -1,10 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
+import CountriesContext from '../store/countries-context';
+
 import styles from './css/filter.module.css';
 
-const Filter = ({ selected, setSelected, filterCountries }) => {
+
+// const Filter = ({ selected, setSelected, filterCountries }) => {
+const Filter = () => {
+  const countriesCtx = useContext(CountriesContext);
+  const { selected, setSelected, filterCountries } = countriesCtx;
 
   const handleSelect = (e) => {
     setSelected(e.target.value);

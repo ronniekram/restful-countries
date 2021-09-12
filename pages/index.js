@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import Search from '../components/Search';
 import Filter from '../components/Filter';
-import Country from '../components/Country';
+import Countries from '../components/Countries';
 
 import CountriesContext from '../store/countries-context';
 
@@ -13,11 +13,6 @@ const Home = () => {
   const countriesCtx = useContext(CountriesContext);
   const { selected, query, filtered, setSelected, setQuery, filterCountries, searchCountries } = countriesCtx;
 
-  const renderCountries = () => {
-    return filtered && filtered.map(country => {
-      return <Country country={country} key={country.name} />
-    });
-  };
 
   return (
     <>
@@ -41,7 +36,7 @@ const Home = () => {
         </section>
 
         <section className={styles.countryContainer}>
-          {renderCountries()}
+          <Countries countries={filtered} />
         </section>
     </>
   );
