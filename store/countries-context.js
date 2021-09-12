@@ -21,11 +21,14 @@ export function CountriesContextProvider(props) {
     const response = await axios.get('https://restcountries.eu/rest/v2/all');
     const data = await response.data
     setCountries(data);
+    if (selected === '' && query === '') {
+      setFiltered(data)
+    };
   };
 
   useEffect(() => {
     getCountries();
-  }, [filtered]);
+  }, [selected]);
 
   const filterCountries = () => {
     if (filtered && selected !== '') {

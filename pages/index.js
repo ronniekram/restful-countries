@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Head from 'next/head';
 
 import Queries from '../components/Queries';
@@ -7,8 +7,7 @@ import CountriesContext from '../store/countries-context';
 
 const Home = () => {
   const countriesCtx = useContext(CountriesContext);
-  const { filtered } = countriesCtx;
-
+  const { filtered, selected, setSelected } = countriesCtx;
 
   return (
     <>
@@ -19,7 +18,7 @@ const Home = () => {
       </Head>
 
       <Queries />
-      <Countries countries={filtered} />
+      <Countries countries={filtered} selected={selected} setSelected={setSelected} />
     </>
   );
 };
